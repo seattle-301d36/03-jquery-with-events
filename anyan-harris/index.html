@@ -78,8 +78,12 @@
   <script src="scripts/blogArticles.js"></script>
   <script src="scripts/article.js"></script>
   <!-- TODO: Link our new script file in. -->
+  <script src="scripts/articleView.js"></script>
 
   <!-- COMMENT: Explain the ordering of your script files. -->
-  <!-- PUT YOUR RESPONSE HERE -->
+  <!-- jQuery load first to enable jQuery functions-->
+  <!-- blogArticles.js is loaded next to populate the objects for the blog content -->
+  <!-- articles.js is then loaded to generate the article content -->
+  <!-- and articleView.js is loaded to then manage the search filters and content display management -->
 </body>
 </html>

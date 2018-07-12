@@ -2,6 +2,7 @@
 
 // REVIEW: Configure an object to hold all of our functions for dynamic updates and article-related event handlers.
 let articleView = {};
+const fadeInSpeed = 333;
 
 articleView.populateFilters = function() {
   $('article').each(function() {
@@ -35,16 +36,30 @@ articleView.populateFilters = function() {
 };
 
 articleView.handleAuthorFilter = function() {
-  $('#author-filter').on('change', function() {
+  $('#author-filter').on('change', function(selectEvent) {
     // REVIEW: Inside this function, "this" is the element that triggered the event handler function we are defining. "$(this)" is using jQuery to select that element (analogous to event.target that we have seen before), so we can chain jQuery methods onto it.
-    if ($(this).val()) {
+    const selectionAuthor = $(this).val();
+    
+    if (selectionAuthor) {
       // TODO: If the <select> menu was changed to an option that has a value, we first need to hide all the articles, and then show just the ones that match for the author that was selected.
       // Use an "attribute selector" to find those articles, and fade them in for the reader.
 
+      // first hide all articles
+      $('article').hide();
+
+      //then show selected author matches
+      //use a selector to find correct articles, and fade in
+      $(`article[data-author="${selectionAuthor}"]`).fadeIn(fadeInSpeed);
+      
     } else {
       // TODO: If the <select> menu was changed to an option that is blank, we should first show all the articles, except the one article we are using as a template.
 
+      // show all articles
+      $('article').show();
+      // hide template article
+      $(`article[class="template"]`).hide();
     }
+
     $('#category-filter').val('');
   });
 };
@@ -77,4 +92,5 @@ articleView.setTeasers = function() {
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function() {
   articleView.populateFilters();
+  articleView.handleAuthorFilter();
 })

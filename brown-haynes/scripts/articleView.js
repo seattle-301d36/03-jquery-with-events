@@ -36,7 +36,7 @@ articleView.populateFilters = function() {
 };
 
 articleView.handleAuthorFilter = function() {
-  $('#author-filter').on('change', function(selectEvent) {
+  $('#author-filter').on('change', function() {
     // REVIEW: Inside this function, "this" is the element that triggered the event handler function we are defining. "$(this)" is using jQuery to select that element (analogous to event.target that we have seen before), so we can chain jQuery methods onto it.
     const selectionAuthor = $(this).val();
     
@@ -65,11 +65,37 @@ articleView.handleAuthorFilter = function() {
 };
 
 articleView.handleCategoryFilter = function() {
-  // TODO: Just like we do for #author-filter above, we should handle change events on the #category-filter element.
+  // TODO: Just like we do for #category-filter above, we should handle change events on the #category-filter element.
   // When an option with a value is selected, hide all the articles, then reveal the matches.
   // When the blank (default) option is selected, show all the articles, except for the template.
-  // Be sure to reset the #author-filter while you are at it!
+  // Be sure to reset the #category-filter while you are at it!
 
+  $('#category-filter').on('change', function() {
+    // REVIEW: Inside this function, "this" is the element that triggered the event handler function we are defining. "$(this)" is using jQuery to select that element (analogous to event.target that we have seen before), so we can chain jQuery methods onto it.
+    const selectionCategory = $(this).val();
+    
+    if (selectionCategory) {
+      // TODO: If the <select> menu was changed to an option that has a value, we first need to hide all the articles, and then show just the ones that match forcategory that was selected.
+      // Use an "attribute selector" to find those articles, and fade them in for the reader.
+
+      // first hide all articles
+      $('article').hide();
+
+      //then show selected category matches
+      //use a selector to find correct articles, and fade in
+      $(`article[data-category="${selectionCategory}"]`).fadeIn(fadeInSpeed);
+      
+    } else {
+      // TODO: If the <select> menu was changed to an option that is blank, we should first show all the articles, except the one article we are using as a template.
+
+      // show all articles
+      $('article').show();
+      // hide template article
+      $(`article[class="template"]`).hide();
+    }
+
+    $('#author-filter').val('');
+  });
 };
 
 articleView.handleMainNav = function() {
@@ -93,4 +119,5 @@ articleView.setTeasers = function() {
 $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleAuthorFilter();
+  articleView.handleCategoryFilter();
 })

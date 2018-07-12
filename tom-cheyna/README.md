@@ -4,19 +4,18 @@
 **Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
+A blog that users can find more information.  If they select from any of the dropdowns it will display only that selected one.  If the user selects the read on it should display the rest of the article.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+Install all the technologies that we used. Under js, Jquery, CSS, Html, and how these technologies interact with each other. Open VS Code. Use object constructors to create objects. Use Jquery to append the objects properties to the DOM.
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+jQuery, JS, CSS HTML, VSCODE, ICOMOON, MIT LICENSE
 
 ## Change Log
-<!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
+07-12-2018 @ 1:17PM - Project is functional up until the Read On links.
 
 ## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
+normalize.css v3.0.2 | MIT License | git.io/normalize
+
+jQuery
